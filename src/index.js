@@ -1,22 +1,21 @@
-import "./config/ReactotronConfig";
+import './config/ReactotronConfig';
 
-import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Button } from "react-native";
+import React, { Component } from 'react';
+import {
+  StyleSheet, Text, View, Button,
+} from 'react-native';
 
-import Todo from "./components/Todo";
+import Todo from './components/Todo';
 
 export default class App extends Component {
   state = {
-    usuario: "Oseias",
-    todos: [
-      { id: 0, text: "Fazer café" },
-      { id: 0, text: "Estudar o GoNative" }
-    ]
+    usuario: 'Oseias',
+    todos: [{ id: 0, text: 'Fazer café' }, { id: 0, text: 'Estudar o GoNative' }],
   };
 
   addTodo = () => {
     this.setState({
-      todos: [...this.state.todos, { id: Math.random(), text: "novo todo" }]
+      todos: [...this.state.todos, { id: Math.random(), text: 'novo todo' }],
     });
   };
 
@@ -36,8 +35,8 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
 });
