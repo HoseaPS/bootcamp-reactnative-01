@@ -1,42 +1,83 @@
-import './config/ReactotronConfig';
-
 import React, { Component } from 'react';
 import {
-  StyleSheet, Text, View, Button,
+  StyleSheet, ScrollView, View, Text,
 } from 'react-native';
 
-import Todo from './components/Todo';
+import './config/ReactotronConfig';
+import './config/DevToolsConfig';
+
+import Post from './components/Post';
+
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red',
+    paddingTop: 20,
+  },
+
+  appTitle: {
+    textAlign: 'center',
+    padding: 10,
+    fontSize: 20,
+    fontWeight: '900',
+    color: '#000',
+  },
+});
 
 export default class App extends Component {
   state = {
-    usuario: 'Oseias',
-    todos: [{ id: 0, text: 'Fazer café' }, { id: 0, text: 'Estudar o GoNative' }],
-  };
-
-  addTodo = () => {
-    this.setState({
-      todos: [...this.state.todos, { id: Math.random(), text: 'novo todo' }],
-    });
+    posts: [
+      {
+        id: 0,
+        title: 'Aprendendo React Native',
+        author: 'Oséias P. Silva',
+        post: 'SHABBA RANKS IS COOL',
+      },
+      {
+        id: 0,
+        title: 'Aprendendo React Native',
+        author: 'Oséias P. Silva',
+        post: 'SHABBA RANKS IS COOL',
+      },
+      {
+        id: 0,
+        title: 'Aprendendo React Native',
+        author: 'Oséias P. Silva',
+        post: 'SHABBA RANKS IS COOL',
+      },
+      {
+        id: 0,
+        title: 'Aprendendo React Native',
+        author: 'Oséias P. Silva',
+        post: 'SHABBA RANKS IS COOL',
+      },
+      {
+        id: 0,
+        title: 'Aprendendo React Native',
+        author: 'Oséias P. Silva',
+        post: 'SHABBA RANKS IS COOL',
+      },
+      {
+        id: 0,
+        title: 'Aprendendo React Native',
+        author: 'Oséias P. Silva',
+        post: 'SHABBA RANKS IS COOL',
+      },
+    ],
   };
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>{this.state.usuario}</Text>
-        {this.state.todos.map(todo => (
-          <Todo key={todo.id} title={todo.text} />
-        ))}
-        <Button title="Adicionar todo" onPress={this.addTodo} />
-      </View>
+      <ScrollView>
+        <Text style={styles.appTitle}>Go Native App</Text>
+        <View style={styles.container}>
+          {this.state.posts.map(state => (
+            <Post key={state.id} title={state.title} author={state.author} post={state.post} />
+          ))}
+        </View>
+      </ScrollView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
